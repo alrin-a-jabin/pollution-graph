@@ -58,7 +58,6 @@ class Dashboard extends Component {
                     options: { ...prevState.options },
                     series: [...prevState.series],
                   }
-                  // change title "Soldier of fortune" to "Child in time"
                   temp.options.xaxis.categories = date;
                   temp.series.push({
                     name: parm,
@@ -68,17 +67,10 @@ class Dashboard extends Component {
                 },
                   () => {
                     this.refreshTab()
-                    console.log(this.state.options, this.state.series, "options")
                   }
 
                 )
-                // this.state.options.xaxis.categories= response.results[0].date.local;
-                // let data=this.state.optionss.xaxis.categories
-                // data.push( response.results[0].date.local)
-                // data.series[0].data.push(response.results[0].value)
-                //  this.setState({
-                //   options:{...data}
-                //  })
+ 
               }
             }
           } catch (error) {
@@ -126,26 +118,11 @@ class Dashboard extends Component {
     }
 
   }
-  // city: "Delhi"
-  // coordinates: {latitude: 28.5512005, longitude: 77.2735737}
-  // country: "IN"
-  // date: {utc: "2021-06-20T20:30:00+00:00", local: "2021-06-21T02:00:00+05:30"}
-  // local: "2021-06-21T02:00:00+05:30"
-  // utc: "2021-06-20T20:30:00+00:00"
-  // entity: "government"
-  // isAnalysis: false
-  // isMobile: false
-  // location: "CRRI Mathura Road, Delhi - IMD"
-  // locationId: 5627
-  // parameter: "pm25"
-  // sensorType: "reference grade"
-  // unit: "µg/m³"
-  // value: 12.31
+
   handleChange = selectedCity => {
     this.setState({ selectedCity, series: [] }, () => {
       this.getPolutiondata()
     });
-    console.log(`Option selected:`, selectedCity);
   };
   onDateChange = (selectedDate) => {
     this.setState({ selectedDate, series: [] }, () => {
